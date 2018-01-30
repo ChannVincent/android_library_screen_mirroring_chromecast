@@ -48,6 +48,11 @@ public class AppCompatCastScreenActivity extends AppCompatActivity {
 
     protected void stopScreenCast() {
         CastScreenService.stop();
+        onChromeCastEnabled(false);
+    }
+
+    protected void onChromeCastEnabled(boolean enabled) {
+        // TODO callback
     }
 
     /**
@@ -145,11 +150,13 @@ public class AppCompatCastScreenActivity extends AppCompatActivity {
                     mRouter,
                     CastScreenService.makeNotification(AppCompatCastScreenActivity.this, device)
             );
+            onChromeCastEnabled(true);
         }
 
         @Override
         public void onRouteUnselected(MediaRouter router, MediaRouter.RouteInfo route) {
             CastScreenService.stop();
+            onChromeCastEnabled(false);
         }
     }
 }
