@@ -11,10 +11,6 @@ import android.util.DisplayMetrics;
 import android.view.Surface;
 import android.view.SurfaceView;
 
-/**
- * ProjectionManager encapsulate the call to {@link MediaProjection} to draw the user's screen
- * on a {@link VirtualDisplay}
- */
 public class ProjectionManager {
     private static final String VIRTUAL_DISPLAY_NAME = "CastScreenVirtualDisplay";
     private int mDensity;

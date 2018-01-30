@@ -2,8 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 25
-
-
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         minSdkVersion 20
@@ -22,5 +21,44 @@ android {
 }
 
 dependencies {
-    compile ('com.google.android.gms:play-services-cast:9.4.0')
+    compile ('com.google.android.gms:play-services-cast:11.8.0')
 }
+
+
+///////////////////////////////////
+////       BINTRAY UPLOAD      ////
+///////////////////////////////////
+
+//////////////////////////////////////////
+////                                  ////
+////         Pour uploader :          ////
+////                                  ////
+////     ./gradlew bintrayUpload      ////
+////                                  ////
+//////////////////////////////////////////
+
+ext {
+    bintrayRepo = bintrayrepo
+    bintrayName = bintrayname
+
+    publishedGroupId = publishedgroupid
+    libraryName = libraryname
+    artifact = 'screencast'
+
+    libraryDescription = librarydescription
+
+    siteUrl = siteurl
+    gitUrl = giturl
+
+    libraryVersion = projectversion
+
+    developerId = developerid
+    developerName = developername
+    developerEmail = developeremail
+
+    licenseName = licensename
+    licenseUrl = licenseurl
+    allLicenses = alllicenses
+}
+
+apply from: '../maven.gradle'

@@ -8,10 +8,8 @@ import android.view.SurfaceView;
 
 import com.google.android.gms.cast.CastPresentation;
 
-/**
- * A {@link CastPresentation} is a {@link Dialog} used to show media on a remote display
- * CastScreenPresentation uses {@link ProjectionManager} to draw on the presentation surface
- */
+
+
 public class CastScreenPresentation extends CastPresentation {
     private ProjectionManager mProjectionManager;
 

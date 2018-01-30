@@ -17,9 +17,7 @@ import android.util.Log;
 
 import com.google.android.gms.cast.CastDevice;
 
-/**
- * CastScreenService is responsible for the {@link ConnectionManager} and {@link Notification}
- * displayed while casting
+/*
  */
 public class CastScreenService extends Service {
     private static final String TAG = "CastScreenService";
@@ -65,9 +63,6 @@ public class CastScreenService extends Service {
         }, Context.BIND_IMPORTANT);
     }
 
-    /**
-     * connect to the cast device and start showing the notification controller
-     */
     private void initialize(Context context,
                             String appId,
                             ServiceConnection connection,
@@ -87,9 +82,6 @@ public class CastScreenService extends Service {
         sCastScreenService = this;
     }
 
-    /**
-     * @return a default notification that returns the user to {@param activity}
-     */
     public static Notification makeNotification(Activity activity, CastDevice device) {
         Intent startActivity = new Intent(activity, activity.getClass());
         startActivity.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -113,9 +105,6 @@ public class CastScreenService extends Service {
         return mBinder;
     }
 
-    /**
-     * called by MediaRouter.Callback.onRouteUnselected to stop the service if it is running
-     */
     public static void stop() {
         if (sCastScreenService == null) {
             Log.i(TAG, "Tried to stop a dead service; ignoring request");
@@ -124,9 +113,6 @@ public class CastScreenService extends Service {
         }
     }
 
-    /**
-     * disconnect from remote display and stop service
-     */
     private void stopInstance() {
         stopForeground(true); // remove notification
         stopSelf();

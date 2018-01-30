@@ -17,10 +17,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-/**
- * Similar to {@link MediaRouteButton}, except starts {@link } to get
- * permission to capture the user's screen
- */
+
 public class CastScreenMediaRouteButton extends MediaRouteButton {
     private static final String TAG = "MediaRouteButton";
     public static final String CHOOSER_TAG =

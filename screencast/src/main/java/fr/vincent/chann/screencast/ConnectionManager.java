@@ -25,11 +25,6 @@ import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallbacks;
 import com.google.android.gms.common.api.Status;
 
-/**
- * ConnectionManager performs all the heavy lifting: connecting to the {@link GoogleApiClient},
- * starting the {@link ProjectionManager}, initiating the {@link CastRemoteDisplay} session, and
- * creating the {@link CastScreenPresentation}
- */
 public class ConnectionManager {
     private static final String TAG = "ConnectionManager";
 
@@ -76,10 +71,6 @@ public class ConnectionManager {
         mApiClient.connect();
     }
 
-    /**
-     * starts remote display when the GoogleApiClient is connected
-     * @return a GoogleApiClient with Cast.API and CastRemoteDisplay.API attached
-     */
     private GoogleApiClient createApiClient(CastDevice device) {
         // Cast API callbacks
         Cast.CastOptions.Builder castBuilder = new Cast.CastOptions.Builder(device, new Cast.Listener() {
@@ -137,9 +128,6 @@ public class ConnectionManager {
                 .build();
     }
 
-    /**
-     * connect to the remote display, and show the {@link CastScreenPresentation} if successful
-     */
     private void connectToRemoteDisplayApi() {
         PendingResult<CastRemoteDisplay.CastRemoteDisplaySessionResult> result =
                 CastRemoteDisplay.CastRemoteDisplayApi.startRemoteDisplay(mApiClient, mAppId);
