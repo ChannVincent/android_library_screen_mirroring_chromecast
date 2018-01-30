@@ -1,9 +1,21 @@
 # Chromecast screen mirroring integration
 
-## Import library in your dependencies
+## Resume
 
-## Code snippet
+It is a very specific developement.
+To start using this library you need a chromecast link to your TV and a phone, both on the same Wifi.
+(cf. see Google Home application to configure your chromecast TV)
+Then, you can start screen mirroring your phone on your chromecast TV.
 
+## Import library 
+
+```xml
+   dependencies {
+      compile 'fr.vincent.chann:screencast:1.0.0'
+   }
+```
+
+## Integration
 
 ```java
    public class MainActivity extends AppCompatCastScreenActivity {
