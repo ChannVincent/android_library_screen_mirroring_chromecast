@@ -38,7 +38,7 @@ public class AppCompatCastScreenActivity extends AppCompatActivity {
      * Main methods
      */
 
-    protected void startScreenCast() {
+    protected void startChromeCast() {
         if (mSelector == null) {
             prepareCast();
         }
@@ -46,7 +46,7 @@ public class AppCompatCastScreenActivity extends AppCompatActivity {
         startActivityForResult(mediaProjectionManager.createScreenCaptureIntent(), SCREEN_CAPTURE_REQUEST);
     }
 
-    protected void stopScreenCast() {
+    protected void stopChromeCast() {
         CastScreenService.stop();
         onChromeCastEnabled(false);
     }

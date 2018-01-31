@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatCastScreenActivity {
         buttonCast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startScreenCast();
+                startChromeCast();
             }
         });
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatCastScreenActivity {
         stopCast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                stopScreenCast();
+                stopChromeCast();
             }
         });
     }
