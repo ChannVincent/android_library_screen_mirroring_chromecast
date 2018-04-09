@@ -129,24 +129,39 @@ public class ConnectionManager {
     }
 
     private void connectToRemoteDisplayApi() {
-        PendingResult<CastRemoteDisplay.CastRemoteDisplaySessionResult> result =
-                CastRemoteDisplay.CastRemoteDisplayApi.startRemoteDisplay(mApiClient, mAppId);
-        result.setResultCallback(new ResultCallbacks<CastRemoteDisplay.CastRemoteDisplaySessionResult>() {
-            @Override
-            public void onSuccess(@NonNull CastRemoteDisplay.CastRemoteDisplaySessionResult castRemoteDisplaySessionResult) {
-                Display remoteDisplay = castRemoteDisplaySessionResult.getPresentationDisplay();
-                mPresentation = new CastScreenPresentation(mService, remoteDisplay, mProjectionManager);
-                mPresentation.show();
-                mPresentationShowing = true;
-                Log.d(TAG, "Created presentation");
-            }
+        try {
+            PendingResult<CastRemoteDisplay.CastRemoteDisplaySessionResult> result =
+                    CastRemoteDisplay.CastRemoteDisplayApi.startRemoteDisplay(mApiClient, mAppId);
+            result.setResultCallback(new ResultCallbacks<CastRemoteDisplay.CastRemoteDisplaySessionResult>() {
+                @Override
+                public void onSuccess(@NonNull CastRemoteDisplay.CastRemoteDisplaySessionResult castRemoteDisplaySessionResult) {
+                    try {
+                        Display remoteDisplay = castRemoteDisplaySessionResult.getPresentationDisplay();
+                        mPresentation = new CastScreenPresentation(mService, remoteDisplay, mProjectionManager);
+                        mPresentation.show();
+                        mPresentationShowing = true;
+                        Log.d(TAG, "Created presentation");
+                    }
+                    catch (NullPointerException e) {
+                        e.printStackTrace();
+                    }
+                }
 
-            @Override
-            public void onFailure(@NonNull Status status) {
-                Log.i(TAG, "Stop Casting because startRemoteDisplay failed");
-                deselectRoute();
-            }
-        });
+                @Override
+                public void onFailure(@NonNull Status status) {
+                    try {
+                        Log.i(TAG, "Stop Casting because startRemoteDisplay failed");
+                        deselectRoute();
+                    }
+                    catch (NullPointerException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+        catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
