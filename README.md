@@ -26,7 +26,7 @@ But first pay attention to configuration :
 
 ```xml
    dependencies {
-      compile 'fr.vincent.chann:screencast:1.0.0'
+      compile 'fr.vincent.chann:screencast:1.0.4'
    }
 ```
 
