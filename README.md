@@ -10,8 +10,9 @@ Then, you can start screen mirroring your phone on your chromecast TV.
 ## Understand
 
 There is 2 types of chromecast :
-- *remote control mode* : you send a one time signal with an url and your chromecast TV will connect to the link through an TV app (netflix, youtube, ...) and start streaming your content from that url
-- *screen mirroring mode* : you start a connection with your chromecast TV and your phone will start streaming a copy of your screen.
+- **remote control mode** : you send a one time signal with an url and your chromecast TV will connect to the link through an TV app (netflix, youtube, ...) and start streaming your content from that url
+- **screen mirroring mode** : you start a connection with your chromecast TV and your phone will start streaming a copy of your screen.
+
 
 This library is about the screen mirroring functionnality.
 But first pay attention to configuration :
