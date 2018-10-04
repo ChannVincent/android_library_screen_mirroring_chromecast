@@ -41,16 +41,18 @@ public class ProjectionManager {
         if (mDisplay != null) mDisplay.release();
 
         Surface surface = view.getHolder().getSurface();
-        mDisplay = mProjection.createVirtualDisplay(
-            VIRTUAL_DISPLAY_NAME,
-            view.getWidth(),
-            view.getHeight(),
-            mDensity,
-            DisplayManager.VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY,
-            surface,
-            null,
-            null
-        );
+        if (mProjection != null) {
+            mDisplay = mProjection.createVirtualDisplay(
+                    VIRTUAL_DISPLAY_NAME,
+                    view.getWidth(),
+                    view.getHeight(),
+                    mDensity,
+                    DisplayManager.VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY,
+                    surface,
+                    null,
+                    null
+            );
+        }
     }
 
     public void release() {
