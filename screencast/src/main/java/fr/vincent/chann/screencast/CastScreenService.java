@@ -40,8 +40,13 @@ public class CastScreenService extends Service {
                              final Notification notification) {
 
         if (sCastScreenService != null) {
-            Log.w(TAG, "Tried to start CastScreenService without stopping prior instance; will stop and return");
-            router.selectRoute(router.getDefaultRoute());
+            try {
+                Log.w(TAG, "Tried to start CastScreenService without stopping prior instance; will stop and return");
+                router.selectRoute(router.getDefaultRoute());
+            }
+            catch (Exception e) {
+
+            }
             return;
         }
 

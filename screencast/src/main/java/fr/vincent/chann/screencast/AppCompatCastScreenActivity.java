@@ -42,13 +42,23 @@ public class AppCompatCastScreenActivity extends AppCompatActivity {
         if (mSelector == null) {
             prepareCast();
         }
-        MediaProjectionManager mediaProjectionManager = (MediaProjectionManager) getSystemService(MEDIA_PROJECTION_SERVICE);
-        startActivityForResult(mediaProjectionManager.createScreenCaptureIntent(), SCREEN_CAPTURE_REQUEST);
+        try {
+            MediaProjectionManager mediaProjectionManager = (MediaProjectionManager) getSystemService(MEDIA_PROJECTION_SERVICE);
+            startActivityForResult(mediaProjectionManager.createScreenCaptureIntent(), SCREEN_CAPTURE_REQUEST);
+        }
+        catch (Exception e) {
+
+        }
     }
 
     protected void stopChromeCast() {
-        CastScreenService.stop();
-        onChromeCastEnabled(false);
+        try {
+            CastScreenService.stop();
+            onChromeCastEnabled(false);
+        }
+        catch (Exception e) {
+
+        }
     }
 
     protected void onChromeCastEnabled(boolean enabled) {
