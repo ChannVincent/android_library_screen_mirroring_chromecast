@@ -83,7 +83,7 @@ public class CastScreenService extends Service {
         mAppContext = context;
         mServiceConnection = connection;
 
-        startForeground(com.google.android.gms.R.id.cast_notification_id, notification);
+        startForeground(R.id.cast_notification_id, notification);
         sCastScreenService = this;
     }
 

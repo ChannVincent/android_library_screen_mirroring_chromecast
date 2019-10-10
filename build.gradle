@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.3.2'
 
         // deploy to maven repository
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
