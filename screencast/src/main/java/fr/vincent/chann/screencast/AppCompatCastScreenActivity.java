@@ -22,7 +22,7 @@ import com.google.android.gms.cast.CastMediaControlIntent;
 public class AppCompatCastScreenActivity extends AppCompatActivity {
 
     public static final int SCREEN_CAPTURE_REQUEST = 9000;
-    private static final String YOUR_APP_ID = "B6C540F3";
+    private static final String YOUR_APP_ID = CastMediaControlIntent.DEFAULT_MEDIA_RECEIVER_APPLICATION_ID; // TODO "B6C540F3";
     private static final String CHOOSER_TAG = "android.support.v7.mediarouter:MediaRouteChooserDialogFragment";
     private static final String CONTROLLER_TAG = "android.support.v7.mediarouter:MediaRouteControllerDialogFragment";
     private String mAppId;
