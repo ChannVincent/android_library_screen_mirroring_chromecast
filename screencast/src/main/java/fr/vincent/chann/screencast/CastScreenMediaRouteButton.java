@@ -5,11 +5,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.media.projection.MediaProjectionManager;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.MediaRouteButton;
-import android.support.v7.media.MediaRouteSelector;
-import android.support.v7.media.MediaRouter;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.mediarouter.app.MediaRouteButton;
+import androidx.mediarouter.media.MediaRouteSelector;
+import androidx.mediarouter.media.MediaRouter;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -31,7 +31,7 @@ public class CastScreenMediaRouteButton extends MediaRouteButton {
     }
 
     public CastScreenMediaRouteButton(Context context, AttributeSet attrs) {
-        this(context, attrs, android.support.v7.mediarouter.R.attr.mediaRouteButtonStyle);
+        this(context, attrs, R.attr.mediaRouteButtonStyle);
     }
 
     public CastScreenMediaRouteButton(Context context, AttributeSet attrs, int defStyleAttr) {
